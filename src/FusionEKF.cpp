@@ -95,7 +95,7 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
       Initialize state.
       */
       ekf_.x_ << measurement_pack.raw_measurements_[0], measurement_pack.raw_measurements_[1], 0, 0;
-      cout<<"After initization with lidar measurement data,, x_ = "<<ekf_.x_<<endl;// Added by Harrison
+      cout<<"After initization with lidar measurement data, x_ = "<<ekf_.x_<<endl;// Added by Harrison
     }
 
     // Initialize the previous time stamp
@@ -122,8 +122,8 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
   float noise_ay = 9;
 
   //compute the time elapsed between the current and previous measurements
-  float dt = measurement_pack.timestamp_ - previous_timestamp_; //dt - expressed in seconds
-  cout<<"dt = "<<dt<<"seconds."<<endl;
+  float dt = (measurement_pack.timestamp_ - previous_timestamp_) / 1000000.0; //dt - expressed in seconds
+  cout<<"dt = "<<dt<<" seconds."<<endl;
 
   previous_timestamp_ = measurement_pack.timestamp_;
   

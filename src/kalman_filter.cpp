@@ -2,6 +2,7 @@
 
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
+using namespace std;// Added by Harrison
 
 // Please note that the Eigen library does not initialize 
 // VectorXd or MatrixXd objects with zeros upon creation.
@@ -25,9 +26,15 @@ void KalmanFilter::Predict() {
   TODO:
     * predict the state
   */
+  cout<<"Before prediction, x_ = "<<x_<<endl;// Added by Harrison
+  cout<<"Before prediction, P_ = "<<P_<<endl;// Added by Harrison
+
   x_ = F_ * x_;
   MatrixXd Ft = F_.transpose();
   P_ = F_ * P_ * Ft + Q_;
+
+  cout<<"After prediction, x_ = "<<x_<<endl;// Added by Harrison
+  cout<<"After prediction, P_ = "<<P_<<endl;// Added by Harrison
 }
 
 void KalmanFilter::Update(const VectorXd &z) {

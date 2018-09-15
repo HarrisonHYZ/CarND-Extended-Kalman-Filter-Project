@@ -41,14 +41,14 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
 
 	//calculate the mean
 	// ... your code here
-	cout<<"estimations size is: "<<estimations.size()<<endl;// Added by Harrison
+	//cout<<"estimations size is: "<<estimations.size()<<endl;// Added by Harrison
 	rmse = rmse.array()/estimations.size();// The average should be calculated according to the data list size.!!!
 
 	//calculate the squared root
 	// ... your code here
 	rmse = rmse.array().sqrt();
 
-	cout<<"rmse = "<<rmse<<endl;//Added by Harrison
+	//cout<<"rmse = "<<rmse<<endl;//Added by Harrison
 
 	//return the result
 	return rmse;
